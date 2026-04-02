@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atendia | Agentes de Voz com IA para Empresas</title>
+<meta content="Chamadas telefónicas com inteligência artificial para empresas. Atendimento, vendas e suporte automatizados com voz natural em português." name="description"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.material-symbols-outlined');
+      
+      // Toggle the answer visibility
+      const isHidden = answer.classList.toggle('hidden');
+      
+      // Rotate icon: 180deg when open, 0deg when closed
+      icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+</script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#00504c",
+              "on-surface-variant": "#3d4948",
+              "background": "#f8f9ff",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#00544f",
+              "secondary-container": "#8c2bff",
+              "surface-container": "#eaeef9",
+              "on-tertiary-container": "#4b4a4a",
+              "on-secondary-fixed": "#280056",
+              "tertiary-fixed": "#e5e2e1",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e4e8f3",
+              "tertiary-container": "#bcbab9",
+              "on-background": "#171c23",
+              "surface-bright": "#f8f9ff",
+              "on-tertiary-fixed-variant": "#474646",
+              "secondary-fixed-dim": "#d7baff",
+              "surface-container-low": "#eff3fe",
+              "inverse-primary": "#5dd9d0",
+              "on-secondary-fixed-variant": "#6100bd",
+              "secondary-fixed": "#eddcff",
+              "tertiary": "#5f5e5e",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#bcc9c7",
+              "surface": "#f8f9ff",
+              "on-surface": "#171c23",
+              "surface-variant": "#dee2ed",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "on-secondary-container": "#f4e7ff",
+              "primary-fixed-dim": "#5dd9d0",
+              "surface-dim": "#d6dae5",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#006a65",
+              "primary-fixed": "#7cf6ec",
+              "on-primary-fixed": "#00201e",
+              "on-tertiary-fixed": "#1c1b1b",
+              "surface-tint": "#006a65",
+              "outline": "#6c7a78",
+              "primary-container": "#4ecdc4",
+              "secondary": "#7000d9",
+              "inverse-on-surface": "#edf1fc",
+              "error": "#ba1a1a",
+              "inverse-surface": "#2c3139",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#dee2ed"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .hero-gradient-text {
+        background: linear-gradient(135deg, #171c23 0%, #3d4948 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .premium-shadow {
+        box-shadow: 0 40px 60px -15px rgba(23, 28, 35, 0.08);
+      }
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- 1. NAVBAR -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a class="text-2xl font-black text-on-background tracking-tighter" href="#">
+                atend<span class="text-primary-container">ia</span>
+</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#solucoes">Soluções</a>
+<a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#como-funciona">Como Funciona</a>
+<a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#plataforma">Plataforma</a>
+<a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#precos">Preços</a>
+<a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#contacto">Contacto</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold text-sm hover:brightness-105 active:scale-95 transition-all shadow-md">
+                    Agendar Demo
+                </button>
+</div>
+<button class="md:hidden text-on-background">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- 2. HERO -->
+<header class="relative pt-32 pb-20 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/10 text-primary font-bold text-xs uppercase tracking-widest">
+                    Agentes de voz com IA
+                </div>
+<h1 class="text-5xl lg:text-7xl font-extrabold hero-gradient-text leading-[1.1] tracking-tight">
+                    Chamadas telefónicas com inteligência artificial.
+                </h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-lg">
+                    Atendimento, vendas e suporte automatizados com voz natural em português. 24 horas, 7 dias, sem filas de espera.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                        Agendar Demonstração
+                    </button>
+<button class="border-2 border-outline-variant text-on-surface px-8 py-4 rounded-xl font-bold text-lg inline-flex items-center gap-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">phone_callback</span>
+                        Experimentar Agora
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-[3rem] bg-inverse-surface overflow-hidden premium-shadow relative group">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Abstract digital sound visualization with vibrant teal neon waves on a dark premium background, 3D fluid motion style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8fUGdosiCQzdbi8gOfKCN9nHyAfnP7sR-oy27__ayiEawvuNn35fOEzXUhRVvyKO2JqoWFRaPRCVaBOIE4ub_kWLQ02dl8aQvMkM-rwo5zjryoSf9L8LkdTyNDqxiLhzYF57NgDb7vw2RPX-SJ-HVZ3bmZLd8If9GdR_3upo-RMUEZlynOtFVRYxcXdBUsMLfWhKDow61TKQ1tFCrjnP6zkEEu8fvB9PlFFUQb8jaHw6h23DLQjW0YlP4yp__sRPyTvRIgE1-oA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 p-6 glass-nav rounded-2xl border border-white/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-on-primary-container">mic</span>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">A Processar Voz...</p>
+<p class="text-sm font-medium text-on-surface-variant">"Olá, como posso ajudar hoje?"</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract decorative shapes -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-secondary-container/20 blur-3xl rounded-full -z-10"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary-container/20 blur-3xl rounded-full -z-10"></div>
+</div>
+</div>
+</header>
+<!-- 3. BARRA DE CONFIANÇA -->
+<section class="bg-surface-container-low py-12 px-8">
+<div class="max-w-7xl mx-auto text-center">
+<p class="text-on-surface-variant/60 font-medium text-sm mb-8 uppercase tracking-widest">Tecnologia de voz usada por empresas em toda a Europa</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 hover:grayscale-0 transition-all duration-500 md:gap-16"><div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<span class="text-lg font-bold tracking-tighter text-on-surface-variant">twilio</span>
+</div>
+<div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xl">blur_on</span>
+<span class="text-lg font-bold tracking-tight text-on-surface-variant">OpenAI</span>
+</div>
+</div>
+<div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xl">cloud</span>
+<span class="text-lg font-medium tracking-tight text-on-surface-variant">Google Cloud</span>
+</div>
+</div>
+<div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<span class="text-lg font-bold tracking-tight text-on-surface-variant">ElevenLabs</span>
+</div>
+<div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<span class="text-lg font-black tracking-tighter text-on-surface-variant italic">Deepgram</span>
+</div>
+<div class="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xl text-green-600/80">chat</span>
+<span class="text-lg font-bold tracking-tight text-on-surface-variant">WhatsApp Business</span>
+</div>
+</div></div>
+</div>
+</section>
+<!-- 4. EXPERIMENTAR (DARK) -->
+<section class="relative bg-inverse-surface py-28 px-8 overflow-hidden parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIwNICPIknh2HcqYFsP2o-H_l0luQO3ZjQ0C4YeJZaOMVh2tYJCPGUq_JT5f-0iv89SA7X6XZYYikUXU0KhG54Jft6DuzI15DTGNlz2GdwiKLBQPth8r_ZEKYfY-_CbhvTL34czD1h5qxnvAdMGB_Tux9Cvyc5hHMmG4FAv33pc5WL0Fa1b5TVwmenaw0xEiTZbGvR8bQjO4gUeRCh5IRJ1-5GJ91UkLFn4W2jytAU2yBdbDoZZp0uP_y3ePqFw8ZW3NLqZ4I4zg');">
+<div class="absolute inset-0 bg-inverse-surface/90 backdrop-blur-sm"></div>
+<div class="relative max-w-3xl mx-auto text-center space-y-10">
+<h2 class="text-4xl md:text-5xl font-extrabold text-white">Ouça a diferença. Agora.</h2>
+<p class="text-xl text-slate-300">Insira o seu número e receba uma chamada da nossa IA em segundos.</p>
+<form class="flex flex-col md:flex-row gap-4 p-2 bg-white/10 rounded-2xl backdrop-blur-xl border border-white/20">
+<div class="flex-1 flex items-center bg-white rounded-xl px-4 py-2">
+<span class="text-on-surface-variant font-bold mr-2">+351</span>
+<input class="w-full border-none focus:ring-0 text-on-surface font-medium" placeholder="Telemóvel" type="tel"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-extrabold text-lg inline-flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">call</span>
+                    Ligar-me Agora
+                </button>
+</form>
+<p class="text-slate-400 text-sm">Chamada gratuita. Sem compromisso.</p>
+</div>
+</section>
+<!-- 5. MÉTRICAS -->
+<section class="bg-white py-24 px-8">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div>
+<p class="text-5xl font-black text-on-background mb-2">24/7</p>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Disponível</p>
+</div>
+<div>
+<p class="text-5xl font-black text-on-background mb-2">&lt; 2s</p>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Latência</p>
+</div>
+<div>
+<p class="text-5xl font-black text-on-background mb-2">99%</p>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Resolução</p>
+</div>
+<div>
+<p class="text-5xl font-black text-on-background mb-2">10.000+</p>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Chamadas simultâneas</p>
+</div>
+</div>
+</section>
+<!-- 6. PROBLEMA -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20 space-y-4">
+<h2 class="text-4xl font-extrabold text-on-background">O custo de não atender.</h2>
+<p class="text-xl text-on-surface-variant">Cada chamada perdida é um cliente perdido.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-10 rounded-3xl premium-shadow space-y-6">
+<div class="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined text-4xl">phone_disabled</span>
+</div>
+<p class="text-lg font-medium text-on-surface">62% dos clientes não voltam a ligar se não forem atendidos à primeira.</p>
+</div>
+<div class="bg-white p-10 rounded-3xl premium-shadow space-y-6">
+<div class="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined text-4xl">schedule</span>
+</div>
+<p class="text-lg font-medium text-on-surface">A sua equipa perde 15 horas por semana em chamadas repetitivas.</p>
+</div>
+<div class="bg-white p-10 rounded-3xl premium-shadow space-y-6">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">trending_down</span>
+</div>
+<p class="text-lg font-medium text-on-surface">Campanhas outbound manuais convertem 3x menos que agentes IA.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. SOLUÇÕES -->
+<section class="py-28 px-8 bg-white" id="solucoes">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20 space-y-4">
+<h2 class="text-4xl font-extrabold text-on-background">Uma plataforma. Dois modos.</h2>
+<p class="text-xl text-on-surface-variant">Chamadas de entrada e de saída, automatizadas com IA.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-10">
+<!-- Inbound Card -->
+<div class="group relative overflow-hidden rounded-[2.5rem] bg-surface-container-low p-12 hover:shadow-2xl transition-all duration-500">
+<div class="absolute -right-20 -bottom-20 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[20rem]" style="font-variation-settings: 'FILL' 1;">call_received</span>
+</div>
+<div class="relative z-10 space-y-6">
+<div class="w-14 h-14 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">add_call</span>
+</div>
+<h3 class="text-3xl font-bold">Inbound</h3>
+<p class="text-on-surface-variant text-lg">Suporte ao cliente, agendamento, triagem, FAQs. O seu agente IA atende cada chamada com voz natural e resolve ou transfere para a equipa.</p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Atendimento zero-wait</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Agendamento direto em calendário</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Triagem inteligente para humanos</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Outbound Card -->
+<div class="group relative overflow-hidden rounded-[2.5rem] bg-inverse-surface text-white p-12 hover:shadow-2xl transition-all duration-500">
+<div class="absolute -right-20 -bottom-20 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[20rem]" style="font-variation-settings: 'FILL' 1;">call_made</span>
+</div>
+<div class="relative z-10 space-y-6">
+<div class="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">contact_phone</span>
+</div>
+<h3 class="text-3xl font-bold">Outbound</h3>
+<p class="text-slate-300 text-lg">Campanhas de marketing, qualificação de leads, confirmações, cobranças, surveys. Milhares de chamadas simultâneas com personalização individual.</p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Escalabilidade para milhares de chamadas</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Voz ultra-realista e empática</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Integração em tempo real com CRM</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. COMO FUNCIONA -->
+<section class="py-28 px-8 bg-surface-container-low overflow-hidden" id="como-funciona">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-extrabold text-on-background mb-20">Do zero à primeira chamada em 72 horas.</h2>
+<div class="grid lg:grid-cols-2 gap-20">
+<div class="space-y-16 relative">
+<!-- Vertical Line -->
+<div class="absolute left-7 top-10 bottom-10 w-0.5 bg-outline-variant"></div>
+<!-- Steps -->
+<div class="relative pl-20 group">
+<div class="absolute left-0 top-0 w-14 h-14 bg-white rounded-2xl border-2 border-primary-container flex items-center justify-center text-primary font-black text-xl z-10">1</div>
+<h4 class="text-2xl font-bold mb-3">Análise</h4>
+<p class="text-on-surface-variant text-lg">Mapeamos os seus fluxos de chamadas actuais e identificamos as maiores oportunidades de automação.</p>
+</div>
+<div class="relative pl-20">
+<div class="absolute left-0 top-0 w-14 h-14 bg-white rounded-2xl border-2 border-primary-container flex items-center justify-center text-primary font-black text-xl z-10">2</div>
+<h4 class="text-2xl font-bold mb-3">Configuração</h4>
+<p class="text-on-surface-variant text-lg">Treinamos o agente com o conhecimento específico da sua empresa e o tom de voz da sua marca.</p>
+</div>
+<div class="relative pl-20">
+<div class="absolute left-0 top-0 w-14 h-14 bg-white rounded-2xl border-2 border-primary-container flex items-center justify-center text-primary font-black text-xl z-10">3</div>
+<h4 class="text-2xl font-bold mb-3">Integração</h4>
+<p class="text-on-surface-variant text-lg">Conectamos o agente IA ao seu CRM, calendário e sistemas de telefonia existentes sem fricção.</p>
+</div>
+<div class="relative pl-20">
+<div class="absolute left-0 top-0 w-14 h-14 bg-white rounded-2xl border-2 border-primary-container flex items-center justify-center text-primary font-black text-xl z-10">4</div>
+<h4 class="text-2xl font-bold mb-3">Lançamento</h4>
+<p class="text-on-surface-variant text-lg">Monitorização em tempo real e optimização contínua para garantir a máxima performance.</p>
+</div>
+</div>
+<div class="hidden lg:block relative">
+<img class="rounded-[3rem] premium-shadow w-full h-[600px] object-cover" data-alt="Modern tech team workspace with clean minimal design, soft daylighting, high-end professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCBrX4yeNv71G7NlTameKtfq-f29IKYn1cXVWjgV5GZK6-qkJRF3z6sdx7p3b_8YCEpGJNyDqI1u-BxzFAS32Wd_rBJCR3Ihd0i7TPOpsBbKUoh6HAOeJHfKsO2dDp0XHogb0o5ISTulLYr_Lr3nni66-eEZU4AC3fbanTqgv_f4ckHh6zbNShnnGNsIFu6c04OQ7MzdtcgY7NOxN8wiOHgVuAXOY3IULDsGM6NhYW1v2M7B5n7pAry-0-mA4gZhqmsL8Cx7ff6w"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. PLATAFORMA -->
+<section class="py-28 px-8 bg-white overflow-hidden" id="plataforma">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="text-4xl font-extrabold text-on-background">Métricas que transformam chamadas em decisões.</h2>
+<p class="text-xl text-on-surface-variant">Dashboard completo com analytics em tempo real.</p>
+</div>
+<div class="relative bg-surface-container-lowest rounded-[3rem] p-4 md:p-12 premium-shadow border border-surface-variant">
+<img class="rounded-[2rem] w-full shadow-lg" data-alt="Premium software dashboard UI showing complex analytics, data charts, and colorful clean metrics with a glassmorphic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEAvpJE7OIM4BbPLN0qlyCRLjb4pz4Ymo3mO8kW2e5qeEnf7rSguI50Ja5NGsj1B2rYMNmDuo9y0o9slgEEQi7S9X-ZEh8MSXaTS6u1q8nTteE59mMkOVJDm8Znt7dk8ilyBVa5Uw_Krq4_TvmzwCwA9r5Rapupij8TJq9l2lY--DcQPJkzgqY0ozJnXJGcUi9l9uAs6NjOz9rdKEtxFwawwmPDqCJevFNS-ss_APBrvQM9GEFsWP0KMmX-_oibyrYj28u2X14JQ"/>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 px-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">fiber_manual_record</span>
+<div>
+<h5 class="font-bold mb-1">Gravação de chamadas</h5>
+<p class="text-sm text-on-surface-variant">Aceda a todos os áudios e interações para garantia de qualidade.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">description</span>
+<div>
+<h5 class="font-bold mb-1">Transcrição automática</h5>
+<p class="text-sm text-on-surface-variant">Transforme voz em texto estruturado em segundos.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">sentiment_satisfied</span>
+<div>
+<h5 class="font-bold mb-1">Análise de sentimento</h5>
+<p class="text-sm text-on-surface-variant">Entenda como os seus clientes se sentem em cada chamada.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">bar_chart</span>
+<div>
+<h5 class="font-bold mb-1">Relatórios exportáveis</h5>
+<p class="text-sm text-on-surface-variant">Dados prontos para BI com exportação em múltiplos formatos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. INTEGRAÇÕES -->
+<section class="py-24 px-8 bg-white">
+<div class="max-w-7xl mx-auto text-center"><h2 class="text-3xl font-extrabold text-on-background mb-16 text-center text-4xl font-black tracking-tight">Integra com os seus sistemas.</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center">
+<!-- Salesforce -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-[#00A1E0] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">Salesforce</span>
+</div>
+<!-- HubSpot -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-[#FF7A59] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">HubSpot</span>
+</div>
+<!-- Google Calendar -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="color: #4285F4; font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">Google Calendar</span>
+</div>
+<!-- Outlook -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-[#0078D4] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">Outlook</span>
+</div>
+<!-- Twilio -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center text-[#F22F46] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">emergency_recording</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">Twilio</span>
+</div>
+<!-- WhatsApp -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">WhatsApp</span>
+</div>
+<!-- Zapier -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-[#FF4F00] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">Zapier</span>
+</div>
+<!-- API Directa -->
+<div class="flex flex-col items-center gap-4 group cursor-pointer transition-all duration-300 hover:-translate-y-2">
+<div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-on-background group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">code</span>
+</div>
+<span class="font-bold text-sm text-on-surface-variant text-base font-extrabold">API Directa</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. SECTORES -->
+<section class="py-28 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-extrabold text-on-background mb-16 text-center">Para qualquer sector.</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Sector Card 1 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">medical_services</span>
+<h4 class="text-xl font-bold mb-4">Clínicas</h4>
+<p class="text-on-surface-variant">Marcações inteligentes e lembretes automáticos para reduzir faltas.</p>
+</div>
+<!-- Sector Card 2 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">restaurant</span>
+<h4 class="text-xl font-bold mb-4">Restaurantes</h4>
+<p class="text-on-surface-variant">Gestão de reservas e informações de horários sem interromper o serviço.</p>
+</div>
+<!-- Sector Card 3 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">home_work</span>
+<h4 class="text-xl font-bold mb-4">Imobiliárias</h4>
+<p class="text-on-surface-variant">Qualificação imediata de leads e agendamento de visitas 24/7.</p>
+</div>
+<!-- Sector Card 4 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">headset_mic</span>
+<h4 class="text-xl font-bold mb-4">Contact Centers</h4>
+<p class="text-on-surface-variant">Escala sem limites para picos de chamadas e triagem de primeiro nível.</p>
+</div>
+<!-- Sector Card 5 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">shopping_cart</span>
+<h4 class="text-xl font-bold mb-4">E-commerce</h4>
+<p class="text-on-surface-variant">Suporte pós-venda, tracking de encomendas e resolução de FAQs.</p>
+</div>
+<!-- Sector Card 6 -->
+<div class="bg-white p-8 rounded-3xl premium-shadow hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary-container/20 group">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 group-hover:scale-110 transition-transform block">account_balance</span>
+<h4 class="text-xl font-bold mb-4">Serviços Financeiros</h4>
+<p class="text-on-surface-variant">Cobranças empáticas, confirmações de segurança e surveys.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 12. PREÇOS -->
+<section class="py-28 px-8 bg-white" id="precos">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-extrabold text-on-background mb-20 text-center">Planos que crescem consigo.</h2>
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Starter -->
+<div class="p-10 rounded-3xl bg-surface-container-low border border-transparent space-y-8">
+<div>
+<h4 class="text-xl font-bold mb-2">Starter</h4>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black">€147</span>
+<span class="text-on-surface-variant">/mês</span>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            500 minutos incluídos
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            1 Agente IA
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            Apenas Inbound
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            Suporte via email
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-xl border-2 border-outline-variant font-bold hover:bg-white transition-all">Começar Agora</button>
+</div>
+<!-- Business -->
+<div class="p-10 rounded-3xl bg-white border-2 border-primary-container premium-shadow relative space-y-8 scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container px-4 py-1 rounded-full text-xs font-black uppercase">Mais Popular</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Business</h4>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-primary">€297</span>
+<span class="text-on-surface-variant">/mês</span>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+                            2000 minutos incluídos
+                        </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+                            Inbound + Outbound
+                        </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+                            Dashboard Analytics
+                        </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+                            Integrações CRM
+                        </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+                            Suporte prioritário
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-primary-container text-on-primary-container font-black shadow-lg hover:brightness-105 transition-all">Escolher Business</button>
+</div>
+<!-- Enterprise -->
+<div class="p-10 rounded-3xl bg-surface-container-low border border-transparent space-y-8">
+<div>
+<h4 class="text-xl font-bold mb-2">Enterprise</h4>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black italic">Sob consulta</span>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            Minutos ilimitados
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            Agentes ilimitados
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            SLA Garantido (99.9%)
+                        </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'opsz' 20;">check</span>
+                            Gestor de conta dedicado
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-xl border-2 border-outline-variant font-bold hover:bg-white transition-all">Falar com Vendas</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 13. CTA SECUNDÁRIO -->
+<section class="relative bg-inverse-surface py-20 px-8 overflow-hidden parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC25kCTdUyf-5l9Sa5voez4h9fOnUCTzdW8TNR9Ef-mEZ_4SmQ1X6L3CZ_bfKIifWI3B9HB5WbFLCequH2bRVjAkUc8pK_Mvjs7B1GPrmir-6ccnNFLF-HvcBkr0fA5JOLWZVawXXWW8zB25div8MXAz7CmRMMbzgVEGPXzyKywkznLcsBS5FY32JizjmG_kcgVbfEx_AeKNu5gXliq5KfvblziAx-n8MiX1FNa5jI-OewDWSnVtDb5kL0_p-JLTTFchqJSTvtmcA');">
+<div class="absolute inset-0 bg-inverse-surface/80"></div>
+<div class="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<h3 class="text-3xl font-bold text-white max-w-md">Experimente agora. Insira o seu número e receba a chamada.</h3>
+<form class="flex-1 w-full max-w-md flex flex-col sm:flex-row gap-3">
+<input class="flex-1 rounded-xl border-none focus:ring-primary-container bg-white font-medium px-6 py-4" placeholder="+351 912 345 678" type="tel"/>
+<button class="bg-primary-container text-on-primary-container font-black px-8 py-4 rounded-xl hover:brightness-110 transition-all">Ligar-me</button>
+</form>
+</div>
+</section>
+<!-- 14. FAQ -->
+<section class="py-28 px-8 bg-white">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl font-extrabold text-on-background mb-16 text-center">Perguntas Frequentes</h2>
+<div class="space-y-4"><!-- FAQ Item 1 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Funciona em português de Portugal?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Sim, os nossos modelos são especificamente treinados para o português de Portugal (pt-PT), respeitando o sotaque, gramática e expressões locais.</p>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Qual é a latência da resposta?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">A nossa tecnologia processa voz e gera respostas em menos de 2 segundos, garantindo uma conversa fluida e natural, quase indistinguível de um humano.</p>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Quanto tempo demora a implementação?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Conseguimos colocar o seu primeiro agente IA a funcionar em apenas 72 horas após a análise inicial dos fluxos.</p>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">É compatível com o RGPD?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Absolutamente. Todos os dados são processados em servidores localizados na União Europeia e cumprimos rigorosamente todas as normas do RGPD.</p>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">E se o cliente quiser falar com um humano?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">O sistema detecta automaticamente quando é necessário e transfere a chamada para a sua equipa em tempo real.</p>
+</div>
+</div>
+<!-- FAQ Item 6 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Integra com o meu CRM?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Sim, via API directa ou Zapier. Salesforce, HubSpot, Pipedrive e outros.</p>
+</div>
+</div>
+<!-- FAQ Item 7 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Posso experimentar antes de comprar?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. Insira o seu número no topo da página e receba uma chamada demo imediata.</p>
+</div>
+</div>
+<!-- FAQ Item 8 -->
+<div class="faq-item border-b border-outline-variant/30 pb-2 group cursor-pointer">
+<div class="flex justify-between items-center py-4">
+<h4 class="text-lg font-bold">Posso usar para chamadas outbound de marketing?</h4>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</div>
+<div class="faq-answer hidden pb-6">
+<p class="text-on-surface-variant leading-relaxed">Sim. O plano Business inclui campanhas outbound com personalização individual e reporting completo.</p>
+</div>
+</div></div>
+</div>
+</section>
+<!-- 15. CTA FINAL -->
+<section class="py-32 px-8 bg-white border-t border-surface-variant">
+<div class="max-w-4xl mx-auto text-center space-y-12">
+<h2 class="text-5xl md:text-6xl font-black text-on-background leading-tight">Pronto para automatizar as suas chamadas?</h2>
+<button class="bg-primary-container text-on-primary-container px-12 py-6 rounded-2xl font-black text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all">
+                Agendar Demonstração Gratuita
+            </button>
+<div class="flex flex-col md:flex-row justify-center gap-12 pt-8" id="contacto">
+<div class="flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary-container">alternate_email</span>
+<span class="font-bold text-lg">ola@atendia.pt</span>
+</div>
+<div class="flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary-container">call</span>
+<span class="font-bold text-lg">+351 210 000 000</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 16. RODAPÉ -->
+<footer class="bg-inverse-surface text-slate-400 py-20 px-8 border-t border-white/10">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+<div class="space-y-6">
+<a class="text-2xl font-black text-white tracking-tighter" href="#">
+                    atend<span class="text-primary-container">ia</span>
+</a>
+<p class="text-sm leading-relaxed">
+                    A liderar a revolução do atendimento de voz com IA em Portugal. Chamadas inteligentes para empresas de alto desempenho.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 20;">share</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 20;">language</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Produto</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#solucoes">Soluções</a></li>
+<li><a class="hover:text-white transition-colors" href="#plataforma">Plataforma</a></li>
+<li><a class="hover:text-white transition-colors" href="#precos">Preços</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Empresa</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#contacto">Contacto</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sobre Nós</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Carreiras</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Parceiros</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Legal</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Privacidade</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Termos</a></li>
+<li><a class="hover:text-white transition-colors" href="#">RGPD</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs">© 2026 Atendia. Orgulhosamente feito em Portugal.</p>
+<div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
+<a class="hover:text-white" href="#">Linkedin</a>
+<a class="hover:text-white" href="#">Instagram</a>
+</div>
+</div>
+</footer>
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.material-symbols-outlined');
+      
+      // Toggle the answer visibility
+      const isHidden = answer.classList.toggle('hidden');
+      
+      // Rotate icon: 180deg when open, 0deg when closed
+      icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+</script></body></html>
