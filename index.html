@@ -24,7 +24,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Twilio Client SDK -->
+<script src="https://sdk.twilio.com/js/client/releases/1.14/twilio.min.js"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -126,8 +127,9 @@
 <a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#plataforma">Plataforma</a>
 <a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#precos">Preços</a>
 <a class="font-medium text-sm tracking-tight text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#contacto">Contacto</a>
-<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold text-sm hover:brightness-105 active:scale-95 transition-all shadow-md">
-                    Agendar Demo
+<button onclick="startCall()" class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold text-sm hover:brightness-105 active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size:18px">mic</span>
+                    Experimentar Agora
                 </button>
 </div>
 <button class="md:hidden text-on-background">
@@ -149,11 +151,8 @@
                     Atendimento, vendas e suporte automatizados com voz natural em português. 24 horas, 7 dias, sem filas de espera.
                 </p>
 <div class="flex flex-wrap gap-4 pt-4">
-<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                        Agendar Demonstração
-                    </button>
-<button class="border-2 border-outline-variant text-on-surface px-8 py-4 rounded-xl font-bold text-lg inline-flex items-center gap-2 hover:bg-surface-container-low transition-all">
-<span class="material-symbols-outlined">phone_callback</span>
+<button onclick="startCall()" class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-2">
+<span class="material-symbols-outlined">mic</span>
                         Experimentar Agora
                     </button>
 </div>
@@ -218,18 +217,12 @@
 <div class="absolute inset-0 bg-inverse-surface/90 backdrop-blur-sm"></div>
 <div class="relative max-w-3xl mx-auto text-center space-y-10">
 <h2 class="text-4xl md:text-5xl font-extrabold text-white">Ouça a diferença. Agora.</h2>
-<p class="text-xl text-slate-300">Insira o seu número e receba uma chamada da nossa IA em segundos.</p>
-<form class="flex flex-col md:flex-row gap-4 p-2 bg-white/10 rounded-2xl backdrop-blur-xl border border-white/20">
-<div class="flex-1 flex items-center bg-white rounded-xl px-4 py-2">
-<span class="text-on-surface-variant font-bold mr-2">+351</span>
-<input class="w-full border-none focus:ring-0 text-on-surface font-medium" placeholder="Telemóvel" type="tel"/>
-</div>
-<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-extrabold text-lg inline-flex items-center justify-center gap-2 hover:brightness-110 transition-all">
-<span class="material-symbols-outlined">call</span>
-                    Ligar-me Agora
+<p class="text-xl text-slate-300">Fale diretamente com a nossa IA pelo seu microfone. Sem instalar nada.</p>
+<button onclick="startCall()" class="bg-primary-container text-on-primary-container px-10 py-5 rounded-2xl font-extrabold text-xl inline-flex items-center justify-center gap-3 hover:brightness-110 hover:scale-105 transition-all shadow-2xl">
+<span class="material-symbols-outlined text-2xl">mic</span>
+                    Experimentar Agora
                 </button>
-</form>
-<p class="text-slate-400 text-sm">Chamada gratuita. Sem compromisso.</p>
+<p class="text-slate-400 text-sm">Gratuito. Sem compromisso. Usa o microfone e altifalante do seu dispositivo.</p>
 </div>
 </section>
 <!-- 5. MÉTRICAS -->
@@ -635,11 +628,11 @@
 <section class="relative bg-inverse-surface py-20 px-8 overflow-hidden parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC25kCTdUyf-5l9Sa5voez4h9fOnUCTzdW8TNR9Ef-mEZ_4SmQ1X6L3CZ_bfKIifWI3B9HB5WbFLCequH2bRVjAkUc8pK_Mvjs7B1GPrmir-6ccnNFLF-HvcBkr0fA5JOLWZVawXXWW8zB25div8MXAz7CmRMMbzgVEGPXzyKywkznLcsBS5FY32JizjmG_kcgVbfEx_AeKNu5gXliq5KfvblziAx-n8MiX1FNa5jI-OewDWSnVtDb5kL0_p-JLTTFchqJSTvtmcA');">
 <div class="absolute inset-0 bg-inverse-surface/80"></div>
 <div class="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-<h3 class="text-3xl font-bold text-white max-w-md">Experimente agora. Insira o seu número e receba a chamada.</h3>
-<form class="flex-1 w-full max-w-md flex flex-col sm:flex-row gap-3">
-<input class="flex-1 rounded-xl border-none focus:ring-primary-container bg-white font-medium px-6 py-4" placeholder="+351 912 345 678" type="tel"/>
-<button class="bg-primary-container text-on-primary-container font-black px-8 py-4 rounded-xl hover:brightness-110 transition-all">Ligar-me</button>
-</form>
+<h3 class="text-3xl font-bold text-white max-w-md">Experimente agora. Fale com a nossa IA pelo microfone.</h3>
+<button onclick="startCall()" class="bg-primary-container text-on-primary-container font-black px-10 py-5 rounded-xl hover:brightness-110 transition-all inline-flex items-center gap-3 text-lg">
+<span class="material-symbols-outlined">mic</span>
+                    Experimentar Agora
+                </button>
 </div>
 </section>
 <!-- 14. FAQ -->
@@ -732,8 +725,9 @@
 <section class="py-32 px-8 bg-white border-t border-surface-variant">
 <div class="max-w-4xl mx-auto text-center space-y-12">
 <h2 class="text-5xl md:text-6xl font-black text-on-background leading-tight">Pronto para automatizar as suas chamadas?</h2>
-<button class="bg-primary-container text-on-primary-container px-12 py-6 rounded-2xl font-black text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all">
-                Agendar Demonstração Gratuita
+<button onclick="startCall()" class="bg-gradient-to-br from-primary to-primary-container text-white px-12 py-6 rounded-2xl font-black text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">mic</span>
+                Experimentar Agora
             </button>
 <div class="flex flex-col md:flex-row justify-center gap-12 pt-8" id="contacto">
 <div class="flex items-center justify-center gap-3">
@@ -802,17 +796,177 @@
 </div>
 </div>
 </footer>
+<!-- Call Widget Overlay -->
+<div id="call-overlay" class="fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-inverse-surface/80 backdrop-blur-md" onclick="endCall()"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div class="relative bg-white rounded-[2rem] p-10 max-w-sm w-full text-center space-y-6 premium-shadow">
+      <!-- Mic animation -->
+      <div id="call-mic" class="mx-auto w-24 h-24 rounded-full bg-primary-container/10 flex items-center justify-center">
+        <div id="call-mic-inner" class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center transition-all">
+          <span class="material-symbols-outlined text-on-primary-container text-3xl" style="font-variation-settings:'FILL' 1">mic</span>
+        </div>
+      </div>
+      <!-- Status -->
+      <div>
+        <p id="call-status" class="text-xl font-bold text-on-background">A preparar...</p>
+        <p id="call-timer" class="text-sm text-on-surface-variant font-medium mt-1 tabular-nums">00:00</p>
+      </div>
+      <!-- Hang up -->
+      <button id="call-hangup" onclick="endCall()" class="mx-auto w-14 h-14 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition-all hover:scale-110 shadow-lg">
+        <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">call_end</span>
+      </button>
+      <p class="text-xs text-on-surface-variant">Clique para terminar a chamada</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes mic-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.4); }
+    50% { box-shadow: 0 0 0 20px rgba(78, 205, 196, 0); }
+  }
+  .mic-active {
+    animation: mic-pulse 1.5s ease-in-out infinite;
+  }
+</style>
+
 <script>
+  // FAQ toggle
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {
       const answer = item.querySelector('.faq-answer');
       const icon = item.querySelector('.material-symbols-outlined');
-      
-      // Toggle the answer visibility
       const isHidden = answer.classList.toggle('hidden');
-      
-      // Rotate icon: 180deg when open, 0deg when closed
       icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
     });
   });
+
+  // ── Twilio Voice Call ──
+  const BACKEND_URL = window.location.hostname === 'atendia.pt'
+    ? 'https://api.atendia.pt'
+    : 'http://localhost:8001';
+
+  let twilioDevice = null;
+  let activeConnection = null;
+  let callTimer = null;
+  let callSeconds = 0;
+
+  function showOverlay(show) {
+    const overlay = document.getElementById('call-overlay');
+    if (show) {
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function setCallStatus(text) {
+    document.getElementById('call-status').textContent = text;
+  }
+
+  function startTimer() {
+    callSeconds = 0;
+    updateTimerDisplay();
+    callTimer = setInterval(() => {
+      callSeconds++;
+      updateTimerDisplay();
+    }, 1000);
+  }
+
+  function stopTimer() {
+    if (callTimer) { clearInterval(callTimer); callTimer = null; }
+  }
+
+  function updateTimerDisplay() {
+    const m = String(Math.floor(callSeconds / 60)).padStart(2, '0');
+    const s = String(callSeconds % 60).padStart(2, '0');
+    document.getElementById('call-timer').textContent = m + ':' + s;
+  }
+
+  function setMicActive(active) {
+    const el = document.getElementById('call-mic-inner');
+    if (active) el.classList.add('mic-active');
+    else el.classList.remove('mic-active');
+  }
+
+  async function startCall() {
+    showOverlay(true);
+    setCallStatus('A pedir acesso ao microfone...');
+    setMicActive(false);
+
+    try {
+      // Request mic permission early so user sees the browser prompt
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (e) {
+      setCallStatus('Microfone bloqueado. Permita o acesso e tente novamente.');
+      setTimeout(() => showOverlay(false), 3000);
+      return;
+    }
+
+    setCallStatus('A ligar...');
+
+    try {
+      const res = await fetch(BACKEND_URL + '/api/twilio/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ identity: 'web-' + Date.now() })
+      });
+      if (!res.ok) throw new Error('Token request failed');
+      const data = await res.json();
+
+      Twilio.Device.setup(data.token, { debug: false });
+
+      Twilio.Device.ready(function () {
+        activeConnection = Twilio.Device.connect();
+      });
+
+      Twilio.Device.connect(function (conn) {
+        activeConnection = conn;
+        setCallStatus('Em chamada');
+        setMicActive(true);
+        startTimer();
+      });
+
+      Twilio.Device.disconnect(function () {
+        onCallEnd();
+      });
+
+      Twilio.Device.error(function (err) {
+        console.error('Twilio error:', err);
+        setCallStatus('Erro na ligação. Tente novamente.');
+        setMicActive(false);
+        stopTimer();
+        setTimeout(() => showOverlay(false), 2500);
+      });
+
+    } catch (e) {
+      console.error('Call setup error:', e);
+      setCallStatus('Serviço indisponível. Tente mais tarde.');
+      setTimeout(() => showOverlay(false), 2500);
+    }
+  }
+
+  function endCall() {
+    if (activeConnection) {
+      activeConnection.disconnect();
+      activeConnection = null;
+    }
+    Twilio.Device.disconnectAll();
+    onCallEnd();
+  }
+
+  function onCallEnd() {
+    setMicActive(false);
+    stopTimer();
+    if (callSeconds > 0) {
+      setCallStatus('Chamada terminada');
+      setTimeout(() => showOverlay(false), 1500);
+    } else {
+      showOverlay(false);
+    }
+    activeConnection = null;
+  }
 </script></body></html>
